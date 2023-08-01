@@ -1,8 +1,8 @@
 // Import de bibliotecas
 import './App.css';
 import { useState , useEffect } from 'react';
-import {BrowserRouter, Routes, Route, Outlet, Link, useNavigate, useParams} from "react-router-dom";
-import { Form, Button, Table } from 'react-bootstrap';
+import {BrowserRouter, Routes, Route, Outlet, useNavigate, useParams} from "react-router-dom";
+import { Form, Button, Table, Nav } from 'react-bootstrap';
 
 // Define o endereço do servidor
 const endereco_servidor = 'http://localhost:8000';
@@ -18,21 +18,15 @@ function Layout(){
   return (
     <>
       <h1>Menu principal</h1>
-      <nav>      
-        <ol>
-          <li>
-            <Link to="/frmcadastrocliente/-1">
-              Incluir
-            </Link>
-          </li>         
-          <li>
-            <Link to="/listarcliente">
-              Listar(Alterar, Excluir)
-            </Link>
-          </li>          
-        </ol>  
-        <hr />      
-      </nav>
+      <Nav defaultActiveKey="/" className="flex-column">
+        <Nav.Item as="incluir">
+          <Nav.Link href="/frmcadastrocliente/-1">1. Incluir</Nav.Link>
+        </Nav.Item>
+        <Nav.Item as="listar">
+          <Nav.Link href="/frmlistarcliente">2. Listar(Alterar, Excluir)</Nav.Link>
+        </Nav.Item>     
+      </Nav>
+      <hr />
       <Outlet />
     </>
   )
@@ -273,7 +267,7 @@ function MenuPrincipal() {
           <Route path='/' element={<Layout />}>
             <Route path='frmcadastroCliente/:alterarId' element={<FrmCadastroCliente />} />
             <Route path='frmexcluircliente/:clienteId' element={<FrmExcluirCliente />} />
-            <Route path='listarcliente' element={<FrmListarCliente />} />
+            <Route path='frmlistarcliente' element={<FrmListarCliente />} />
             <Route path='*' element={<NoPage />} />
           </Route>
         </Routes>        
