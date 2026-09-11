@@ -15,7 +15,7 @@
 
 ## Execução
 
-   <pre><code>npm start</code></pre>
+   <pre><code>npm run dev</code></pre>
 
 ## Atualização
 
@@ -24,7 +24,7 @@
 
 ## Arquivos de projeto em src
 
-   - App.js - Interface do programa.
+   - App.jsx - Interface do programa.
 
 ## Vercel
 
