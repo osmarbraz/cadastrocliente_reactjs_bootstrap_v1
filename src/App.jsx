@@ -1,7 +1,7 @@
 // Import de bibliotecas
 import './App.css';
 import { useState , useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Outlet, useNavigate, useParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet, useNavigate, useParams, Link } from "react-router-dom";
 import { Container, Form, Button, Table, Nav } from 'react-bootstrap';
 
 // Define o endereço do servidor
@@ -21,11 +21,11 @@ function Layout(){
         <h1>Menu principal</h1>
         <Nav defaultActiveKey="/" className="bg-light flex-column">
           <Nav.Item as="incluir">
-            <Nav.Link href="/frmcadastrocliente/-1">1. Incluir</Nav.Link>
+              <Nav.Link as={Link} to="/frmcadastrocliente/-1">1. Incluir</Nav.Link>
           </Nav.Item>
           <Nav.Item as="listar">
-            <Nav.Link href="/frmlistarcliente">2. Listar(Alterar, Excluir)</Nav.Link>
-          </Nav.Item>     
+              <Nav.Link as={Link} to="/frmlistarcliente">2. Listar(Alterar, Excluir)</Nav.Link>
+          </Nav.Item>      
         </Nav>        
         <hr />
         <Outlet />
